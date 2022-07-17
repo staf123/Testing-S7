@@ -37,9 +37,12 @@ logger.add("Info.log", format="{time} {level} {message}", level="INFO", rotation
 
 logger.info("successful, (info)!")
 
-df = pd.read_csv (r"C:\Users\Xiaomi\PycharmProjects\pythonProject\In\20201129_1234_DME.csv")
-df.to_json (r"C:\Users\Xiaomi\PycharmProjects\pythonProject\Out\20201129_1234_DME.json")
+try:
+    df = pd.read_csv (r"C:\Users\Xiaomi\PycharmProjects\pythonProject\In\20201129_1234_DME.csv")
+    df.to_json (r"C:\Users\Xiaomi\PycharmProjects\pythonProject\Out\20201129_1234_DME.json")
 
+except:
+    df.to_json (r"C:\Users\Xiaomi\PycharmProjects\pythonProject\Err\20201129_1234_DME.json")
 
 logger.add("Info.log", format="{time} {level} {message}", level="INFO", rotation="1 week", compression="zip" )
 
